@@ -10,18 +10,23 @@ module.exports = () => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
+  app.get("/", (req, res) => {
+    res.send("Bem vindo ao LAS-API");
+  });
+
   consign().include("src/controllers").into(app);
 
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
-    if (err.erroApp) {
-      res.status(400).send(err.erroApp);
-    } else if (ENV !== "production") {
-      res.status(500).send({ error: err.message });
+    if (err) {
+      if (err.erroApp) {
+        res.status(400).send(err.erroApp);
+      } else if (ENV !== "production") {
+        res.status(500).send({ error: err.message });
+      }
     } else {
       res.status(500).send({ error: "Algo deu errado..." });
     }
-    console.log(err);
   });
 
   return app;
