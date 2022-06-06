@@ -91,7 +91,7 @@ describe("API de usuários", () => {
     ]);
   });
 
-  test("Adicionar usuário com dados inválidos", async () => {
+  test("Adicionar usuário com URL inválida", async () => {
     const respURLInvalida = await request.post("/usuarios").send({
       nome: "nomeValido",
       urlFotoPerfil: "xxxxxxxxxxxxxxxxxxxx",
@@ -105,6 +105,18 @@ describe("API de usuários", () => {
         valido: false,
       },
     ]);
+  });
+
+
+  test("Alterar usuario com dados válidos", async () => {
+    const alteracao = {nome: "Joaquim"};
+    const resp = await request.put("/usuarios/2").send(alteracao);
+    expect(resp.statusCode).toBe(200);
+  });
+
+  test("Deletar usuario", async () => {
+    const resp = await request.delete("/usuarios/1");
+    expect(resp.statusCode).toBe(204);
   });
 
   test("Adicionar usuário com cpf inválido", async () => {
@@ -122,4 +134,7 @@ describe("API de usuários", () => {
       },
     ]);
   });
+
+
+
 });

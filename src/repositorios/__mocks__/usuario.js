@@ -15,6 +15,18 @@ class UsuarioRepositorio {
       !!usuariosMock.find((usuario) => usuario.nome === nome)
     );
   }
-}
+  
+  alterar(valores, id) {
+    const usuario = usuariosMock.find((user) => user.id === id);
+    usuario.nome = valores.nome;
+    return Promise.resolve(usuario);
+    
+  }
 
+  excluir(id) {
+    const usuariosFiltrados = usuariosMock.filter((user) => user.id !== id);
+    return Promise.resolve(usuariosFiltrados);
+  }
+  
+}
 module.exports = new UsuarioRepositorio();

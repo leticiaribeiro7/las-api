@@ -64,6 +64,7 @@ describe("API de eventos", () => {
   });
 
 
+
   test("Alterar evento com dados válidos", async () => {
     const alteracao = {nome: "Carnaval"};
     const resp = await request.put("/eventos/2").send(alteracao);
@@ -84,7 +85,7 @@ describe("API de eventos", () => {
     expect(resp.statusCode).toBe(204);
   });
 
-  test("Buscar evento por status", async () => {
+  test("Buscar evento por status agendado", async () => {
     const resp = await request.get("/eventos/status/agendado");
     expect(resp.statusCode).toBe(200);
     expect(resp.body).toEqual([
@@ -99,4 +100,7 @@ describe("API de eventos", () => {
       }
     ]);
   });
+  
+
+
 });

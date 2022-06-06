@@ -3,7 +3,7 @@ const query = require("../infraestrutura/database/queries.js");
 class UsuarioRepositorio {
   listar() {
     const sql = `SELECT 
-    nomeCompleto, urlFotoPerfil, email
+    id, nomeCompleto, urlFotoPerfil, email
     FROM Usuarios`;
     return query(sql);
   }
