@@ -27,7 +27,8 @@ module.exports = (app) => {
     const id = parseInt(req.params.id);
     const valores = req.body;
     tipoVenda.alterar(valores, id)
-      .then((resultados) => res.status(200).json(resultados))
+      .then((resultados) => resultados ? res.status(200).json(resultados)
+      : res.status(400).send())
       .catch((erros) => next(erros));
   });
 
