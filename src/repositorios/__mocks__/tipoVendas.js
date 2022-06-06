@@ -11,9 +11,9 @@ class TipoVendasRepositorio {
     return Promise.resolve({id: 3, ...tipoVenda});
   }
   alterar(valores, id) {
-    const venda = vendasMock.find((venda) => venda.id === id);
-    venda.descricao = valores.descricao;
-    return Promise.resolve(venda);
+    const tipoVenda = vendasMock.find((venda) => venda.id === id);
+    tipoVenda.descricao = valores.descricao;
+    return Promise.resolve(tipoVenda);
   }
   excluir(id) {
     const vendasFiltradas = vendasMock.filter((venda) => venda.id !== id);

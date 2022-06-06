@@ -13,7 +13,7 @@ class EventoRepositorio {
   }
 
   alterar(valores, id) {
-    const evento = eventosMock.find((evento) => evento.id === id);
+    const evento = eventosMock.find((event) => event.id === id);
     evento.nome = valores.nome;
     return Promise.resolve(evento);
 
