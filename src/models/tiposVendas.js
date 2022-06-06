@@ -1,6 +1,6 @@
 const repositorio = require("../repositorios/tipoVendas");
 
-class tipoVendas {
+class TipoVendas {
   listar() {
     return repositorio.listar();
   }
@@ -17,4 +17,4 @@ class tipoVendas {
     return repositorio.excluir(id);
   }
 }
-module.exports = new tipoVendas();
+module.exports = new TipoVendas();
