@@ -10,14 +10,14 @@ module.exports = () => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
-  app.get("/", (req, res) => {
+  app.get("/", (_req, res) => {
     res.send("Bem vindo ao LAS-API");
   });
 
   consign().include("src/controllers").into(app);
 
   // eslint-disable-next-line no-unused-vars
-  app.use((err, req, res, next) => {
+  app.use((err, _req, res, _next) => {
     if (err) {
       if (err.erroApp) {
         res.status(400).send(err.erroApp);
