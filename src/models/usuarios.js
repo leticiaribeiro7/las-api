@@ -49,7 +49,7 @@ class Usuarios {
     const existemErros = erros.length;
 
     if (existemErros) {
-      throw { erroApp: erros };
+      throw new Error({ erroApp: erros });
     } else {
       const resposta = await repositorio.adicionar(usuario);
       return { id: resposta.insertId, ...usuario };
