@@ -41,13 +41,13 @@ describe("API de vendas", () => {
     });
 
 
-    test("Alterar venda", async () => {
-        const alteracao = {
-            descricao: "Ingresso"
-        };
-        const resp = await request.put("/eventos/2").send(alteracao);
-        expect(resp.statusCode).toBe(200);
-    });
+    // test("Alterar venda", async () => {
+    //     const alteracao = {
+    //         descricao: "Ingresso"
+    //     };
+    //     const resp = await request.put("/eventos/2").send(alteracao);
+    //     expect(resp.statusCode).toBe(200);
+    // });
 
     test("Deletar venda", async () => {
         const resp = await request.delete("/tipos-vendas/1");
