@@ -7,6 +7,11 @@ const ENV = process.env.NODE_ENV;
 module.exports = () => {
   const app = express();
 
+  const swaggerUi = require("swagger-ui-express");
+  const swaggerDocument = require("../swagger.json");
+
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
